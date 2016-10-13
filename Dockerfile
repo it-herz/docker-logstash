@@ -9,7 +9,7 @@ RUN cd /etc/logstash && curl -O "http://geolite.maxmind.com/download/geoip/datab
 
 ADD elasticsearch-template.json /etc/logstash/templates/elasticsearch-template.json
 
-ADD ./*.pattern ${LOGSTASH_HOME}/patterns/
+ADD ./*.pattern /opt/logstash/patterns/
 
 ADD *.conf /etc/logstash/conf.d/
 
