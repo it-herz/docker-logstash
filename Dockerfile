@@ -1,4 +1,4 @@
-FROM logstash
+FROM logstash:latest
 
 MAINTAINER Dmitrii Zolotov <dzolotov@herzen.spb.ru>
 
@@ -12,6 +12,8 @@ ADD elasticsearch-template.json /etc/logstash/templates/elasticsearch-template.j
 ADD ./*.pattern /usr/share/logstash/patterns/
 ADD ./nginx /usr/share/logstash/patterns/
 
-ADD *.conf /etc/logstash/
+ADD *.conf /etc/logstash/conf.d/
 
 EXPOSE 5000 5044 12201/udp 12202/udp
+
+CMD [ "-f" "/etc/logstash/conf.d" ]
