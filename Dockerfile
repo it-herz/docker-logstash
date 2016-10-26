@@ -5,12 +5,12 @@ MAINTAINER Dmitrii Zolotov <dzolotov@herzen.spb.ru>
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN cd /etc/logstash && curl -O "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" && gunzip GeoLiteCity.dat.gz && \
-    sed -i 's/0x78,0x../0x78,0x01/ig' /opt/logstash/vendor/bundle/jruby/1.9/gems/gelfd-0.2.0/lib/gelfd.rb
+    sed -i 's/0x78,0x../0x78,0x01/ig' /usr/share/logstash/vendor/bundle/jruby/1.9/gems/gelfd-0.2.0/lib/gelfd.rb
 
 ADD elasticsearch-template.json /etc/logstash/templates/elasticsearch-template.json
 
-ADD ./*.pattern /opt/logstash/patterns/
-ADD ./nginx /opt/logstash/patterns/
+ADD ./*.pattern /usr/share/logstash/patterns/
+ADD ./nginx /usr/share/logstash/patterns/
 
 ADD *.conf /etc/logstash/conf.d/
 
