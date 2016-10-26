@@ -12,8 +12,6 @@ ADD elasticsearch-template.json /etc/logstash/templates/elasticsearch-template.j
 ADD ./*.pattern /usr/share/logstash/patterns/
 ADD ./nginx /usr/share/logstash/patterns/
 
-ADD *.conf /etc/logstash/conf.d/
+ADD *.conf /etc/logstash/
 
 EXPOSE 5000 5044 12201/udp 12202/udp
-
-CMD [ "-f", "/etc/logstash/conf.d/" ]
