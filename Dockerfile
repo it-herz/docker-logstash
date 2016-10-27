@@ -16,6 +16,4 @@ ADD *.conf /etc/logstash/conf.d/
 
 EXPOSE 5000 5044 12201/udp 12202/udp
 
-ENTRYPOINT /usr/share/logstash/bin/logstash
-
-CMD -f /etc/logstash/conf.d
+CMD [ "-f", "/etc/logstash/conf.d/" ]
