@@ -1,4 +1,4 @@
-FROM logstash:latest
+FROM logstash:2.4
 
 MAINTAINER Dmitrii Zolotov <dzolotov@herzen.spb.ru>
 
@@ -9,8 +9,8 @@ RUN cd /etc/logstash && curl -O "http://geolite.maxmind.com/download/geoip/datab
 
 ADD elasticsearch-template.json /etc/logstash/templates/elasticsearch-template.json
 
-ADD ./*.pattern /usr/share/logstash/patterns/
-ADD ./nginx /usr/share/logstash/patterns/
+ADD ./*.pattern /opt/logstash/patterns/
+ADD ./nginx /opt/logstash/patterns/
 
 ADD *.conf /etc/logstash/conf.d/
 
