@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash:5.4.0
+FROM docker.elastic.co/logstash/logstash:6.0.0-beta1
 
 MAINTAINER Dmitrii Zolotov <dzolotov@herzen.spb.ru>
 
